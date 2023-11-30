@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.register_container {
+    border: 1px solid rgb(219, 219, 219);
+    width: 21rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header {
+    margin-top: 2rem;
+    font-family: "Lobster", cursive;
+    font-size: 2.5rem;
+    opacity: 0.8;
+}
+
+.header_description {
+    font-weight: bold;
+    color: gray;
+    width: 80%;
+    text-align: center;
+}
+
+.fabebook_icon_login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    background-color: rgb(98, 182, 249);
+    border-radius: 5px;
+    height: 2rem;
+    /* padding: 0.5rem; */
+}
+
+.fabebook_icon_login:hover {
+    background-color: rgb(72, 167, 244);
+}
+
+.fabebook_icon_login a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.fabebook_icon_login a img {
+    height: 28px;
+    width: 28px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: darkgray;
+    font-size: 0.9rem;
+}
+
+.line {
+    height: 1px;
+    width: 6rem;
+    background-color: rgb(219, 219, 219);
+}
+
+.register_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 16rem;
+}
+
+.register_form input {
+    width: 100%;
+    padding: 0.5rem;
+    height: 1rem;
+    background: rgba(250, 250, 250, 1);
+    border: 1px solid rgb(158, 157, 157);
+    border-radius: 4px;
+}
+
+.register_form input:focus-visible {
+    outline: none;
+}
+
+.register_form button {
+    background-color: rgb(98, 182, 249);
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 17rem;
+    border: none;
+    padding: 0.5rem;
+    height: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms {
+    text-align: center;
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    width: 80%;
+    color: gray;
+}
+
+.login_container {
+    border: 1px solid rgb(219, 219, 219);
+    width: 21rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.login_container a {
+    text-decoration: none;
+    color: rgb(72, 167, 244);
+    margin-left: 0.3rem;
+}
