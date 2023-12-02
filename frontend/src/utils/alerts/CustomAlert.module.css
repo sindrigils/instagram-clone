@@ -1,0 +1,19 @@
+.alert_container {
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-color: #f5c6cb;
+    border-radius: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
+    width: 19rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close_icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
