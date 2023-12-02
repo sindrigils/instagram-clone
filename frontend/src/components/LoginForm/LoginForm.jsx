@@ -1,16 +1,18 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-import styles from "./LoginForm.module.css";
 import facebook from "../../assets/icons/facebook.svg";
+import useAuth from "../../services/authService";
+import styles from "./LoginForm.module.css";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { handleLoginUser } = useAuth();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("submitted");
+    handleLoginUser(username, password);
   }
 
   return (
@@ -24,12 +26,14 @@ function LoginForm() {
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              required
             />
             <input
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
 
             <button type="submit">Log in</button>
@@ -53,7 +57,7 @@ function LoginForm() {
 
       <div className={styles.signup_container}>
         <p>
-          Don't have an account?{" "}
+          Don't have an account?
           <Link to="/register">
             <strong>Sign up</strong>
           </Link>
