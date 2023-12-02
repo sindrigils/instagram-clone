@@ -1,6 +1,6 @@
 const initialStateUser = {
   currentUser: {
-    username: "SindriGils",
+    username: "",
     firstName: "",
     lastName: "",
     email: "",
