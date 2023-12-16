@@ -1,39 +1,44 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 
-import { LoginUser } from "../reducers/users/userSlice";
+import { LoginUser, LogoutUser } from "../reducers/users/userSlice";
 import useAuth from "../services/authService";
+import { axiosInstance } from "../axios";
 
 function AuthProvider({ children }) {
   const dispatch = useDispatch();
-  const { updateToken } = useAuth();
-  const { authToken } = useSelector((state) => state.user);
+  const { updateToken, validateToken } = useAuth();
   const intervalDuration = 4 * 60 * 1000;
 
-  useEffect(
-    function () {
-      const jwtTokens = localStorage.getItem("jwtTokens");
-
-      if (jwtTokens) {
-        const { accessToken } = JSON.parse(jwtTokens);
-        const { username: jwtUsername, auth_token } = jwtDecode(accessToken);
-        dispatch(LoginUser(jwtUsername, auth_token));
+  useEffect(() => {
+    const { accessToken } =
+      JSON.parse(localStorage.getItem("jwtTokens") || "{}") || {};
+    const checkAuthentication = async () => {
+      const isValidToken = await validateToken(accessToken);
+      if (isValidToken) {
+        const { user_id: userId, username } = jwtDecode(accessToken);
+        const res = await axiosInstance.get(`profile/profile-pic/${userId}`);
+        const profilePic = res.data.profile_pic;
+        dispatch(LoginUser(userId, username, profilePic));
+      } else {
+        localStorage.removeItem("jwtTokens");
+        dispatch(LogoutUser());
       }
-    },
-    [dispatch]
-  );
+    };
+
+    checkAuthentication();
+  }, [dispatch, validateToken]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (authToken) {
-        const { refreshToken } = JSON.parse(localStorage.getItem("jwtTokens"));
-        updateToken(refreshToken);
-      }
+      const { refreshToken } =
+        JSON.parse(localStorage.getItem("jwtTokens") || {}) || {};
+      updateToken(refreshToken);
     }, intervalDuration);
 
     return () => clearInterval(interval);
-  }, [authToken, updateToken, intervalDuration]);
+  }, [updateToken, intervalDuration]);
 
   return <>{children}</>;
 }

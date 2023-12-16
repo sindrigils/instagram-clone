@@ -11,6 +11,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
 
         token["username"] = user.username
+        token["user_id"] = user.id
         token["auth_token"] = str(token)
         return token
 

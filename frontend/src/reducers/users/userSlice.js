@@ -1,11 +1,11 @@
 const initialStateUser = {
-  currentUser: {
-    username: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-  },
-  authToken: "",
+  userId: "",
+  username: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  profilePic: "",
+  isLoading: true,
 };
 
 export default function userReducer(state = initialStateUser, action) {
@@ -13,24 +13,27 @@ export default function userReducer(state = initialStateUser, action) {
     case "user/loginUser":
       return {
         ...state,
-        currentUser: { username: action.payload.username },
-        authToken: action.payload.authToken,
+        userId: action.payload.user_id,
+        username: action.payload.username,
+        profilePic: action.payload.profilePic,
+        isLoading: false,
       };
 
-    case "user/retrieveToken":
-      return {};
-
     case "user/logoutUser":
-      return initialStateUser;
+      return { ...initialStateUser, isLoading: false };
+
+    case "user/updateProfilePic":
+      return { ...state, profilePic: action.payload.profilePic };
+
     default:
       return { ...state };
   }
 }
 
-export function LoginUser(username, authToken) {
+export function LoginUser(user_id, username, profilePic) {
   return {
     type: "user/loginUser",
-    payload: { username, authToken },
+    payload: { user_id, username, profilePic },
   };
 }
 
@@ -38,4 +41,8 @@ export function LogoutUser() {
   return {
     type: "user/logoutUser",
   };
+}
+
+export function UpdateProfilePic(profilePic) {
+  return { type: "user/updateProfilePic", payload: { profilePic } };
 }
