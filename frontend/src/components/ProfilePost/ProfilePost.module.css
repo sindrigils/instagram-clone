@@ -1,0 +1,69 @@
+.image_container {
+    position: relative;
+    width: 309px;
+    height: 309px;
+    margin: 0.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex: 0 0 calc(33.333% - 0.2rem);
+}
+
+.image_container img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.icons_container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.image_container:hover .icons_container {
+    visibility: visible;
+}
+
+.likes_and_comments {
+    z-index: 2;
+    color: red;
+}
+
+.likes_and_comments svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+
+.hover_background {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.post_information {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+}
+
+.post_information svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+  

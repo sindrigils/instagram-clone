@@ -17,7 +17,7 @@ const useAuth = function () {
     setFlashMessages
   ) => {
     axiosInstance
-      .post(`register`, {
+      .post(`auth/register`, {
         email,
         username,
         password,
@@ -44,7 +44,7 @@ const useAuth = function () {
   };
 
   const handleLoginUser = async (username, password) => {
-    const response = await axiosInstance.post("token", {
+    const response = await axiosInstance.post("auth/token", {
       username,
       password,
     });
@@ -61,39 +61,59 @@ const useAuth = function () {
       );
       axiosInstance.defaults.headers["Authorization"] = "JWT " + accessToken;
 
-      const { username: jwtUsername, auth_token } = jwtDecode(accessToken);
-      dispatch(LoginUser(jwtUsername, auth_token));
+      const { username: jwtUsername, user_id: userId } = jwtDecode(accessToken);
+      const res = await axiosInstance.get(`profile/profile-pic/${userId}`);
+      const profilePic = res.data.profile_pic;
+      dispatch(LoginUser(userId, jwtUsername, profilePic));
       navigate("/");
     }
   };
 
-  const updateToken = async (refreshtoken) => {
-    const response = await axiosInstance.post("token/refresh", {
-      refresh: refreshtoken,
-    });
-    if (response.status === 200) {
-      localStorage.setItem(
-        "jwtTokens",
-        JSON.stringify({
-          accessToken: response.data.access,
-          refreshToken: response.data.refresh,
-        })
-      );
-    }
-    if (response.status === 200) {
-      localStorage.setItem(
-        "jwtTokens",
-        JSON.stringify({
-          accessToken: response.data.access,
-          refreshToken: response.data.refresh,
-        })
-      );
-    } else {
-      handleLogoutUser();
+  const validateToken = async (accessToken) => {
+    let state = false;
+    try {
+      const response = await axiosInstance.post("auth/token/verify", {
+        token: accessToken,
+      });
+      if (response.status === 200) state = true;
+    } catch (e) {
+      state = false;
+    } finally {
+      return state;
     }
   };
 
-  return { handleLogoutUser, handleLoginUser, updateToken, handleRegisterUser };
+  const updateToken = async (refreshtoken) => {
+    try {
+      localStorage.removeItem("jwtTokens");
+      const response = await axiosInstance.post("auth/token/refresh", {
+        refresh: refreshtoken,
+      });
+
+      if (response.status === 200) {
+        localStorage.setItem(
+          "jwtTokens",
+          JSON.stringify({
+            accessToken: response.data.access,
+            refreshToken: response.data.refresh,
+          })
+        );
+      }
+    } catch (e) {
+    } finally {
+      if (!localStorage.getItem("jwtTokens")) {
+        handleLogoutUser();
+      }
+    }
+  };
+
+  return {
+    handleLogoutUser,
+    handleLoginUser,
+    handleRegisterUser,
+    updateToken,
+    validateToken,
+  };
 };
 
 export default useAuth;

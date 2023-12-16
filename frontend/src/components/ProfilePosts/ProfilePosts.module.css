@@ -1,0 +1,56 @@
+.posts_options {
+    display: flex;
+    gap: 4rem;
+    opacity: 0.7;
+}
+
+.user_posts {
+    max-width: 937px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.posts_options span {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 1rem;
+}
+
+.share_photos_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.share_photos_container svg {
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid rgb(38,38,38);
+    border-radius: 50%;
+    padding: 0.5rem;
+}
+
+.share_photos_header {
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+.share_photos_description {
+    text-align: center;
+    text-wrap: wrap;
+    width: 90%;
+}
+
+.share_photos_link {
+    font-weight: 600;
+    color: rgb(0, 149, 246);
+    transition: color 0.15s ease-in-out;
+}
+
+.share_photos_link:hover {
+    color: white;
+}

@@ -1,0 +1,73 @@
+.header {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    gap: 5rem;
+}
+
+.profile_pic {
+    border-radius: 50%;
+    height: 9rem;
+    width: 9rem;
+    border: 1px solid white;
+}
+
+.profile {
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    width: 30rem;
+}
+
+.subheader_1 {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.subheader_1__username {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.subheader_1 svg {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.subheader_2 {
+    display: flex;
+    gap: 2rem;
+}
+
+.subheader_2 span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.follow {
+    cursor: pointer;
+}
+
+.profile_btn {
+    color: white;
+    font-weight: 600;
+    border: none;
+    background-color: rgb(54, 54, 54);
+    padding: 0.6rem 1.1rem;
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.profile_btn:hover {
+    opacity: 0.8;
+}
+
+.bio {
+    display: flex;
+    flex-wrap: wrap;
+    height: 4rem;
+    font-weight: 500;
+}

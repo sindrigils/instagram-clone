@@ -59,7 +59,7 @@ function LoginForm() {
         <p>
           Don't have an account?
           <Link to="/register">
-            <strong>Sign up</strong>
+            <strong> Sign up</strong>
           </Link>
         </p>
       </div>
