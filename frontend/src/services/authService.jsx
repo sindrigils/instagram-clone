@@ -29,6 +29,7 @@ const useAuth = function () {
       .catch((error) => {
         setFlashMessages(() => []);
         const errors = error.response.data;
+        console.log(errors);
         for (const key in errors) {
           if (errors.hasOwnProperty(key)) {
             const errorMessage = errors[key][0];
@@ -43,29 +44,35 @@ const useAuth = function () {
     dispatch(LogoutUser());
   };
 
-  const handleLoginUser = async (username, password) => {
-    const response = await axiosInstance.post("auth/token", {
-      username,
-      password,
-    });
+  const handleLoginUser = async (username, password, setFlashMessage) => {
+    try {
+      const response = await axiosInstance.post("auth/token", {
+        username,
+        password,
+      });
+      if (response.status === 200) {
+        const accessToken = response.data.access;
+        const refreshToken = response.data.refresh;
+        localStorage.setItem(
+          "jwtTokens",
+          JSON.stringify({
+            accessToken,
+            refreshToken,
+          })
+        );
+        axiosInstance.defaults.headers["Authorization"] = "JWT " + accessToken;
 
-    if (response.status === 200) {
-      const accessToken = response.data.access;
-      const refreshToken = response.data.refresh;
-      localStorage.setItem(
-        "jwtTokens",
-        JSON.stringify({
-          accessToken,
-          refreshToken,
-        })
-      );
-      axiosInstance.defaults.headers["Authorization"] = "JWT " + accessToken;
-
-      const { username: jwtUsername, user_id: userId } = jwtDecode(accessToken);
-      const res = await axiosInstance.get(`profile/profile-pic/${userId}`);
-      const profilePic = res.data.profile_pic;
-      dispatch(LoginUser(userId, jwtUsername, profilePic));
-      navigate("/");
+        const { username: jwtUsername, user_id: userId } =
+          jwtDecode(accessToken);
+        const res = await axiosInstance.get(`profile/profile-pic/${userId}`);
+        const profilePic = res.data.profile_pic;
+        dispatch(LoginUser(userId, jwtUsername, profilePic));
+        navigate("/");
+      } else {
+        setFlashMessage(() => ["Something went wrong, please try again."]);
+      }
+    } catch (e) {
+      setFlashMessage(() => [e.response.data.detail]);
     }
   };
 
