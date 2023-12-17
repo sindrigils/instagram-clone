@@ -1,6 +1,6 @@
 import CustomAlert from "./CustomAlert";
 
-const FlashMessage = ({ messages, onClose }) => {
+const FlashMessage = ({ messages, onClose, styles }) => {
   const handleClose = (index) => {
     onClose((prevMessages) => prevMessages.filter((_, i) => i !== index));
   };
@@ -11,6 +11,7 @@ const FlashMessage = ({ messages, onClose }) => {
           key={index}
           variant={"danger"}
           onClose={() => handleClose(index)}
+          customStyles={styles}
         >
           {message}
         </CustomAlert>
