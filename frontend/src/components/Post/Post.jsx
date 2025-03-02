@@ -1,6 +1,4 @@
 import styles from "./Post.module.css";
-import postImage from "../../assets/images/eren.jpeg";
-import userLogo from "../../assets/images/logo.jpeg";
 import HeartSvg from "../../assets/svgs/HeartSvg";
 import CommentSvg from "../../assets/svgs/CommentSvg";
 import MessageSvg from "../../assets/svgs/MessageSvg";
@@ -8,12 +6,11 @@ import BookmarkSvg from "../../assets/svgs/BookmarkSvg";
 import MoreSvg from "../../assets/svgs/MoreSvg";
 
 const postObj = {
-  username: "teslamotors", // max 40
+  username: "username",
   image: "",
   createdAt: "1d",
   likes: "313,838",
-  description:
-    "This is the best fictional character in all of the anime, even in the whole world",
+  description: "Some description",
   comments: "3,323",
 };
 
@@ -29,27 +26,27 @@ function formatLongDescription(description) {
 
 function Post() {
   return (
-    <div className={styles.post_container}>
-      <div className={styles.post_header}>
+    <div className={styles.postContainer}>
+      <div className={styles.postHeader}>
         <span>
           <img
-            className={styles.profile_pic}
-            src={userLogo}
-            alt="post profile-pic"
+            className={styles.profilePic}
+            src="https://picsum.photos/50"
+            alt=""
           />
         </span>
-        <span className={styles.post_header_username}>{postObj.username}</span>
+        <span className={styles.postHeaderUsername}>{postObj.username}</span>
         &#x2022;
-        <span className={styles.post_header_date}>{postObj.createdAt}</span>
+        <span className={styles.postHeaderDate}>{postObj.createdAt}</span>
         <span className={styles.more}>
           <MoreSvg />
         </span>
       </div>
-      <div className={styles.post_images}>
-        <img src={postImage} alt="eren yeager" />
+      <div className={styles.postImages}>
+        <img src="https://picsum.photos/1900" alt="" />
       </div>
-      <div className={styles.post_icons_container}>
-        <div className={styles.post_icons}>
+      <div className={styles.postIconsContainer}>
+        <div className={styles.postIcons}>
           <HeartSvg />
           <CommentSvg />
           <MessageSvg />
@@ -58,11 +55,11 @@ function Post() {
           <BookmarkSvg />
         </span>
       </div>
-      <div className={styles.post_description_comments}>
-        <div className={styles.likes_amount}>{postObj.likes} likes</div>
+      <div className={styles.postDescriptionComments}>
+        <div className={styles.likesAmount}>{postObj.likes} likes</div>
         <div className={styles.description}>
           <span>
-            <span className={styles.description_username}>
+            <span className={styles.descriptionUsername}>
               {postObj.username}
             </span>
             {checkDescriptionLength(postObj.description) ? (
@@ -70,7 +67,7 @@ function Post() {
                 {formatLongDescription(postObj.description)}{" "}
                 <span
                   style={{ cursor: "pointer" }}
-                  className={styles.comment_color}
+                  className={styles.commentColor}
                 >
                   more
                 </span>
@@ -84,7 +81,7 @@ function Post() {
         <div className={styles.comments}>
           View all {postObj.comments} comments
         </div>
-        <div className={styles.comment_color}>Add a comment...</div>
+        <div className={styles.commentColor}>Add a comment...</div>
       </div>
     </div>
   );

@@ -4,10 +4,12 @@ import { jwtDecode } from "jwt-decode";
 
 import { LogoutUser, LoginUser } from "../reducers/users/userSlice";
 import { axiosInstance } from "../axios";
+import useCurrentProfile from "./useCurrentProfile";
 
 const useAuth = function () {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { fetchProfile } = useCurrentProfile();
 
   const handleRegisterUser = (
     username,
@@ -28,8 +30,8 @@ const useAuth = function () {
       })
       .catch((error) => {
         setFlashMessages(() => []);
-        const errors = error.response.data;
-        console.log(errors);
+        console.log("mja:".error);
+        const errors = error.response?.data;
         for (const key in errors) {
           if (errors.hasOwnProperty(key)) {
             const errorMessage = errors[key][0];
@@ -64,9 +66,9 @@ const useAuth = function () {
 
         const { username: jwtUsername, user_id: userId } =
           jwtDecode(accessToken);
-        const res = await axiosInstance.get(`profile/profile-pic/${userId}`);
-        const profilePic = res.data.profile_pic;
-        dispatch(LoginUser(userId, jwtUsername, profilePic));
+
+        fetchProfile(userId);
+        dispatch(LoginUser(userId, jwtUsername));
         navigate("/");
       } else {
         setFlashMessage(() => ["Something went wrong, please try again."]);

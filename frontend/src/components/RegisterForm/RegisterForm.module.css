@@ -9,7 +9,7 @@
     margin-top: 2rem;
 }
 
-.register_container {
+.registerContainer {
     border: 1px solid rgb(219, 219, 219);
     width: 21rem;
     height: 43rem;
@@ -27,14 +27,14 @@
     color: black;
 }
 
-.header_description {
+.headerDescription {
     font-weight: bold;
     color: gray;
     width: 80%;
     text-align: center;
 }
 
-.fabebook_icon_login {
+.fabebookIconLogin {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,11 +44,11 @@
     height: 2rem;
 }
 
-.fabebook_icon_login:hover {
+.fabebookIconLogin:hover {
     background-color: rgb(72, 167, 244);
 }
 
-.fabebook_icon_login a {
+.fabebookIconLogin a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,7 @@
     font-size: 0.9rem;
 }
 
-.fabebook_icon_login a img {
+.fabebookIconLogin a img {
     height: 28px;
     width: 28px;
 }
@@ -79,7 +79,7 @@
     background-color: rgb(219, 219, 219);
 }
 
-.register_form {
+.registerForm {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -88,7 +88,7 @@
     width: 16rem;
 }
 
-.register_form input {
+.registerForm input {
     width: 100%;
     padding: 0.5rem;
     height: 2rem;
@@ -97,11 +97,11 @@
     border-radius: 4px;
 }
 
-.register_form input:focus-visible {
+.registerForm input:focus-visible {
     outline: none;
 }
 
-.register_form button {
+.registerForm button {
     background-color: rgb(98, 182, 249);
     border-radius: 5px;
     font-size: 1rem;
@@ -123,7 +123,7 @@
     color: gray;
 }
 
-.login_container {
+.loginContainer {
     border: 1px solid rgb(219, 219, 219);
     width: 21rem;
     height: 4rem;
@@ -135,7 +135,7 @@
     color: black;
 }
 
-.login_container a {
+.loginContainer a {
     text-decoration: none;
     color: rgb(72, 167, 244);
     margin-left: 0.3rem;

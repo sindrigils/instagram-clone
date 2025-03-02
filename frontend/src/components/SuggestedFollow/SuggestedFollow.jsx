@@ -1,6 +1,5 @@
 import styles from "./SuggestedFollow.module.css";
 import Item from "../Item/Item";
-import erenImage from "../../assets/images/eren.jpeg";
 
 function SuggestedFollow() {
   function handleClick() {
@@ -9,10 +8,14 @@ function SuggestedFollow() {
   const hello = [];
   return (
     <div className={styles.container}>
-      <Item text={"sindrigils"} svg={<img src={erenImage} alt="" />} />
+      <Item
+        text={"username"}
+        svg={<img src="https://picsum.photos/50" alt="cat" />}
+      />
+
       <div className={styles.user}>
         <span>Suggested for you</span>
-        <span className={styles.user_see_all}>See All</span>
+        <span className={styles.userSeeAll}>See All</span>
       </div>
       {/* TODO */}
       {hello.map((_, idx) => (

@@ -18,12 +18,12 @@
     font-weight: 600;
 }
 
-.user_see_all {
+.userSeeAll {
     color: white;
     transition: color 0.15s ease-in-out;
 }
 
-.user_see_all:hover {
+.userSeeAll:hover {
     color: rgb(168, 168, 168);
 }
 

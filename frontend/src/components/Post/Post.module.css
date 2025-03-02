@@ -1,5 +1,4 @@
-
-.post_container {
+.postContainer {
     height: 50rem;
     width: 29rem;
     max-width: 29rem;
@@ -14,7 +13,7 @@
     "description_comments";
 }
 
-.post_header {
+.postHeader {
     grid-area: header;
     display: flex;
     align-items: center;
@@ -24,20 +23,16 @@
     height: 100%;
 }
 
-.profile_pic {
+.profilePic {
     width: 28px;
     height: 28px;
     border-radius: 50%;
     margin-left: 0.5rem;
 }
 
-.post_header_username {
+.postHeaderUsername {
     font-weight: 700;
     color: white;
-}
-
-.post_header_date {
-    
 }
 
 .more {
@@ -50,27 +45,27 @@
     cursor: pointer;
 }
 
-.post_images {
+.postImages {
     grid-area: image;
     max-height: 36.5rem;
     width: 100%;
     
 }
 
-.post_images img {
+.postImages img {
     max-width: 29rem;
     width: 100%;
     height: 100%;
     border-radius: 5px;
 }
 
-.post_icons_container {
+.postIconsContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.post_icons {
+.postIcons {
     grid-area: icons;
     display: flex;
     justify-content: flex-start;
@@ -79,13 +74,13 @@
 }
 
 
-.post_icons svg {
+.postIcons svg {
     height: 28px;
     width: 28px;
     transition: opacity 0.15s ease-in-out;
 }
 
-.post_icons svg:hover {
+.postIcons svg:hover {
     opacity: 0.7;
 }
 
@@ -99,7 +94,7 @@
     opacity: 0.7;
 }
 
-.post_description_comments {
+.postDescriptionComments {
     grid-area: description_comments;
     display: flex;
     flex-direction: column;
@@ -109,7 +104,7 @@
     max-width: 29rem;
 }
 
-.likes_amount {
+.likesAmount {
     font-weight: 700;
 }
 
@@ -122,7 +117,7 @@
 }
 
 
-.description_username {
+.descriptionUsername {
     font-weight: 700;
     margin-right: 0.3rem;
 }
@@ -132,6 +127,6 @@
     color: rgb(168, 168, 168);
 }
 
-.comment_color {
+.commentColor {
     color: rgb(168, 168, 168);
 }

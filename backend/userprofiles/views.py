@@ -15,7 +15,11 @@ load_dotenv()
 KEY = getenv("SECRET_KEY")
 
 
-class UserProfileDetails(APIView):
+class UserProfileDetailsView(APIView):
+    """
+    Fetches the profile details when visiting other users.
+    """
+
     permission_classes = [IsAuthenticated]
 
     def get(self, request, username):
@@ -37,7 +41,11 @@ class UserProfileDetails(APIView):
         return Response(data)
 
 
-class CreateUserProfile(APIView):
+class CreateUserProfileView(APIView):
+    """
+    Creates a userprofile model when an account is created.
+    """
+
     def post(self, request, id):
         user = CustomUser.objects.filter(id=id).first()
 
@@ -52,10 +60,39 @@ class CreateUserProfile(APIView):
         return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class UserProfilePicView(APIView):
+class UserProfileView(APIView):
+    """
+    Fetch user own profile details.
+    """
+
     permission_classes = [IsAuthenticated]
 
     def get(self, request, id):
         user = CustomUser.objects.filter(id=id).first()
         profile_serializer = UserProfileSerializer(user.profile.first())
         return Response(profile_serializer.data, status=status.HTTP_200_OK)
+
+
+class UpdateProfileView(APIView):
+    """
+    Updates the user profile pic and bio.
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, id):
+        user = CustomUser.objects.filter(id=id).first()
+
+        if not user:
+            return Response("User not found", status=status.HTTP_404_NOT_FOUND)
+
+        bio = request.data.get("bio")
+        profile_pic = request.FILES.get("image")
+
+        profile_instance = user.profile.first()
+        if profile_instance:
+            profile_instance.bio = bio
+            if profile_pic:
+                profile_instance.profile_pic = profile_pic
+            profile_instance.save()
+        return Response(status=status.HTTP_200_OK)

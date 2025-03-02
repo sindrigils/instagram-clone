@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import facebook from "../../assets/icons/facebook.svg";
-import useAuth from "../../services/authService";
+import useAuth from "../../services/useAuth";
 import styles from "./LoginForm.module.css";
 import FlashMessage from "../../utils/alerts/Alerts";
 
@@ -19,16 +19,16 @@ function LoginForm() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.login_container}>
+      <div className={styles.loginContainer}>
         {flashMessage && (
           <span className={styles.alert}>
             <FlashMessage messages={flashMessage} onClose={setFlashMessage} />
           </span>
         )}
-        <div className={styles.login_form_container}>
+        <div className={styles.loginFormContainer}>
           <div className={styles.header}>Instagram</div>
           <div className={styles.prompt}>
-            <form className={styles.login_form} onSubmit={handleSubmit}>
+            <form className={styles.loginForm} onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Username"
@@ -53,17 +53,17 @@ function LoginForm() {
             <div className={styles.line}></div>
           </div>
           <div className={styles.footer}>
-            <div className={styles.facebook_prompt}>
-              <img className={styles.facebook_icon} src={facebook} alt="" />
+            <div className={styles.facebookPrompt}>
+              <img className={styles.facebookIcon} src={facebook} alt="" />
               <strong>Log in with Facebook</strong>
             </div>
-            <a className={styles.forgot_password} href="/">
+            <a className={styles.forgotPassword} href="/">
               Forgot password?
             </a>
           </div>
         </div>
 
-        <div className={styles.signup_container}>
+        <div className={styles.signupContainer}>
           <p>
             Don't have an account?
             <Link to="/register">

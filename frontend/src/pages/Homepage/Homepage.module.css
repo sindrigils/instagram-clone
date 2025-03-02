@@ -12,14 +12,14 @@
     width: 18%;
 }
 
-.main_container {
+.mainContainer {
     grid-area: main;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.story_list {
+.storyList {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
@@ -27,6 +27,6 @@
     width: 100%;
 }
 
-.suggested_container {
+.suggestedContainer {
     grid-area: suggested;
 }

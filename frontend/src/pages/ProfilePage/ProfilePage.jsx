@@ -40,18 +40,18 @@ function ProfilePage() {
         <div className={styles.sidebar}>
           <Sidebar />
         </div>
-        <div className={styles.profile_container}>
+        <div className={styles.profileContainer}>
           <ProfileHeader openAddPostModal={openAddPostModal} />
-          <div className={styles.highlights_container}>
+          <div className={styles.highlightsContainer}>
             <div>
-              <div className={styles.highlights_svg_container}>
+              <div className={styles.highlightsSvgContainer}>
                 <CrossSvg />
               </div>
               <span>New</span>
             </div>
           </div>
 
-          <div className={styles.posts_container}>
+          <div className={styles.postsContainer}>
             <ProfilePosts />
           </div>
         </div>

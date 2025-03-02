@@ -70,10 +70,10 @@ function CreatePost({ onClose }) {
               cols="40"
             />
           </label>
-          <div className={styles.images_container}>
+          <div className={styles.imagesContainer}>
             <DragAndDrop images={images} setImages={setImages} />
           </div>
-          <button className={styles.submit_btn}>Add post</button>
+          <button className={styles.submitBtn}>Add post</button>
         </form>
       </div>
     </>

@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-.sidebar_container {
+.sidebarContainer {
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-right: 1px solid rgb(168, 168, 168, 0.3);
     width: 18vw;
-    min-width: 10rem;
+    min-width: 11rem;
     height: 100vh;
     padding: 1rem;
 }
@@ -32,6 +32,6 @@
     
 }
 
-.footer_icons {
+.footerIcons {
     margin-bottom: 1rem;
 }

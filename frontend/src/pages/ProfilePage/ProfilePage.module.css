@@ -4,13 +4,14 @@
     grid-template-columns: 18% 1fr;
     grid-template-areas: "sidebar main";
     height: 100vh;
+    /* overflow-y: hidden; */
 }
 
 .sidebar {
     grid-area: sidebar;
 }
 
-.profile_container {
+.profileContainer {
     grid-area: main;
     width: 100%;
     height: 100%;
@@ -21,14 +22,14 @@
     align-items: center;
 }
 
-.highlights_container {
+.highlightsContainer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 60%;
 }
 
-.highlights_container div {
+.highlightsContainer div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,7 +39,7 @@
     font-size: 0.9rem;
 }
 
-.highlights_svg_container {
+.highlightsSvgContainer {
     width: 78px;
     height: 78px;
     border-radius: 50%;
@@ -46,15 +47,14 @@
     background-color: rgb(18, 18, 18);
 }
 
-.highlights_svg_container svg {
+.highlightsSvgContainer svg {
     width: 32px;
     height: 32px;
 }
 
-.posts_container {
+.postsContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 4rem;
     width: 80%;
     max-width: 62rem;

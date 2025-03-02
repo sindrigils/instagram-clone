@@ -14,21 +14,21 @@ import MenuSvg from "../../assets/svgs/MenuSvg";
 import { useSelector } from "react-redux";
 
 const items = {
-  Home: <HomeSvg />,
-  Search: <SearchSvg />,
-  Explore: <ExploreSvg />,
-  Reels: <ReelsSvg />,
-  Messages: <MessageSvg />,
-  Notifications: <HeartSvg />,
-  Create: <CreateSvg />,
+  Home: { svg: <HomeSvg />, link: "/" },
+  Search: { svg: <SearchSvg />, link: "/" },
+  Explore: { svg: <ExploreSvg />, link: "/" },
+  Reels: { svg: <ReelsSvg />, link: "/" },
+  Messages: { svg: <MessageSvg />, link: "/" },
+  Notifications: { svg: <HeartSvg />, link: "/" },
+  Create: { svg: <CreateSvg />, link: "/" },
 };
 
 function Sidebar() {
-  const { profilePic } = useSelector((state) => state.user);
-  items["Profile"] = profilePic;
+  const { profilePic, username } = useSelector((state) => state.user);
+  items["Profile"] = { svg: profilePic, link: `/${username}` };
 
   return (
-    <div className={styles.sidebar_container}>
+    <div className={styles.sidebarContainer}>
       <div>
         <div className={styles.header}>
           <span>
@@ -37,11 +37,11 @@ function Sidebar() {
             </Link>
           </span>
         </div>
-        {Object.entries(items).map(([text, svg], idx) => (
-          <Item key={idx} text={text} svg={svg} />
+        {Object.entries(items).map(([text, { svg, link }], idx) => (
+          <Item key={idx} text={text} svg={svg} link={link} />
         ))}
       </div>
-      <div className={styles.footer_icons}>
+      <div className={styles.footerIcons}>
         <Item text={"Threads"} svg={<HomeSvg />} />
         <Item text={"More"} svg={<MenuSvg />} />
       </div>

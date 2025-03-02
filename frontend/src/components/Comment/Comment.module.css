@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;500;600;700&display=swap');
+
+.container {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    grid-template-areas: "profilePic comment";
+}
+
+.profilePic {
+    grid-area: profilePic;
+}
+
+.profilePic img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.comment {
+    grid-area: comment;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contentTest {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.contentHeader {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.username {
+    font-weight: 500;
+}
+
+.text {
+}
+
+.contentFooter {
+    display: flex;
+    gap: 0.5rem;
+    color: rgb(168, 168, 168);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.heartSvg svg {
+    width: 16px;
+    height: 16px;
+}
+
+.viewReplies {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.viewReplies div {
+    color: rgb(168, 168, 168);
+    font-weight: 500;
+}
+
+.line {
+    width: 24px;
+    height: 1px;
+    background-color: rgb(168, 168, 168);
+}

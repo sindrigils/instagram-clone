@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import facebook from "../../assets/icons/facebook.svg";
 import FlashMessage from "../../utils/alerts/Alerts";
-import useAuth from "../../services/authService";
+import useAuth from "../../services/useAuth";
 import styles from "./RegisterForm.module.css";
 
 function RegisterForm() {
@@ -32,12 +32,12 @@ function RegisterForm() {
       {flashMessages.length > 0 && (
         <FlashMessage messages={flashMessages} onClose={setFlashMessages} />
       )}
-      <div className={styles.register_container}>
+      <div className={styles.registerContainer}>
         <div className={styles.header}>Instagram</div>
-        <div className={styles.header_description}>
+        <div className={styles.headerDescription}>
           Sign up to see photos and videos from your friends.
         </div>
-        <div className={styles.fabebook_icon_login}>
+        <div className={styles.fabebookIconLogin}>
           <a href="/">
             <img src={facebook} alt="" />
             <strong>Log in with Facebook</strong>
@@ -49,7 +49,7 @@ function RegisterForm() {
           <div className={styles.line}></div>
         </div>
 
-        <form className={styles.register_form} onSubmit={handleSubmit}>
+        <form className={styles.registerForm} onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Email"
@@ -99,7 +99,7 @@ function RegisterForm() {
         </div>
       </div>
 
-      <div className={styles.login_container}>
+      <div className={styles.loginContainer}>
         Have an account?{" "}
         <Link to="/login">
           <strong>Log in</strong>

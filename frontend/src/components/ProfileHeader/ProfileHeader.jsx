@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import SettingsSvg from "../../assets/svgs/SettingsSvg";
 import styles from "./ProfileHeader.module.css";
 import { useSelector } from "react-redux";
@@ -18,24 +18,27 @@ function ProfileHeader({ openAddPostModal }) {
   return (
     <div className={styles.header}>
       <img
-        className={styles.profile_pic}
+        className={styles.profilePic}
         src={`http://localhost:8000/${profilePic}`}
         alt="profile pic"
       />
       <div className={styles.profile}>
         <div className={styles.subheader_1}>
-          <span className={styles.subheader_1__username}>{paramsUsername}</span>
+          <span className={styles.subheader_1_Username}>{paramsUsername}</span>
           <span>
-            <button className={styles.profile_btn}>
-              {ownProfile
-                ? "Edit profile"
-                : isFollowing
-                ? "Unfollow"
-                : "Follow"}
-            </button>
+            {ownProfile ? (
+              <Link className={styles.editProfile} to="/accounts">
+                <button className={styles.profileBtn}>Edit profile</button>
+              </Link>
+            ) : (
+              <button className={styles.profileBtn}>
+                {" "}
+                {isFollowing ? "Unfollow" : "Follow"}{" "}
+              </button>
+            )}
           </span>
           <span>
-            <button className={styles.profile_btn} onClick={openAddPostModal}>
+            <button className={styles.profileBtn} onClick={openAddPostModal}>
               {ownProfile ? "Add post" : "Message"}
             </button>
           </span>

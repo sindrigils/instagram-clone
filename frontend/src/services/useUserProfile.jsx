@@ -1,4 +1,3 @@
-// useUser.js
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { axiosInstance } from "../axios";

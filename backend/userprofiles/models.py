@@ -18,6 +18,9 @@ class UserProfile(models.Model):
         upload_to=upload_to,
         blank=True,
         null=True,
-        default="/profile-pics/default-profile-pic.png",
+        default="profile-pics/default-profile-pic.png",
     )
     bio = models.TextField(blank=True, null=True, max_length=150)
+
+    def __str__(self):
+        return str(self.user.username)

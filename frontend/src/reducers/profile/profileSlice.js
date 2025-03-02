@@ -24,6 +24,7 @@ export default function profileReducer(state = initialState, action) {
         posts: action.payload.posts,
         ownProfile: action.payload.ownProfile,
         isFollowing: action.payload.isFollowing,
+        isLoading: false,
       };
 
     case "profile/setLoadingToFalse":

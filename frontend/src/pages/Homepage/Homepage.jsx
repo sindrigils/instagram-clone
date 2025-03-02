@@ -17,8 +17,8 @@ function Home() {
           <div className={styles.sidebar}>
             <Sidebar />
           </div>
-          <div className={styles.main_container}>
-            <div className={styles.story_list}>
+          <div className={styles.mainContainer}>
+            <div className={styles.storyList}>
               <StoryList />
             </div>
             <div className={styles.posts}>
@@ -28,7 +28,7 @@ function Home() {
               <Post />
             </div>
           </div>
-          <div className={styles.suggested_container}>
+          <div className={styles.suggestedContainer}>
             <SuggestedFollow />
           </div>
         </div>

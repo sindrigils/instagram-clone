@@ -1,21 +1,17 @@
-version: '3'
-services:
-  frontend:
-    build:
-      context: ./frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    environment:
-      - WATCHFILES_FORCE_POLLING=true
-    volumes:
-      - type: bind
-        source: ./frontend
-        target: /app
+version: '3.8'
 
-  backend:
-    build:
-      context: ./backend
+services:
+  postgres:
+    image: postgres:16
+    container_name: insta_clone_postgres
+    environment:
+      POSTGRES_USER: insta_clone
+      POSTGRES_PASSWORD: insta_clone
+      POSTGRES_DB: insta_clone
     ports:
-      - "8000:8000"
+      - "5435:5432"
+    volumes:
+      - insta-clone-postgres:/var/lib/postgresql/data
+
+volumes:
+  insta-clone-postgres:

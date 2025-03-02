@@ -28,19 +28,19 @@ class CreatePostView(APIView):
         )
 
 
-class UserPostsView(APIView):
-    """Fetches all the posts from a particular user"""
+class PostsView(APIView):
+    """Fetche a post by its id"""
 
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, user_id):
+    def get(self, request, id):
         """Gets all of the posts from a user"""
-        user = CustomUser.objects.filter(id=user_id).first()
-        if user:
-            posts = user.posts.all()
-            serialize_posts = PostSerializer(posts, many=True)
-            return Response({"posts": serialize_posts.data})
-        return Response(data="User not found!", status=status.HTTP_404_NOT_FOUND)
+        post = Post.objects.filter(id=id).first()
+        # nota auth headers til að fá user id og athuga hvort hann sé búinn að like þetta post
+        if post:
+            serialize_post = PostSerializer(post)
+            return Response({"post": serialize_post.data})
+        return Response(data="Post not found!", status=status.HTTP_404_NOT_FOUND)
 
 
 class UserProfilePostsView(APIView):

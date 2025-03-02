@@ -7,15 +7,16 @@ function ProfilePosts({ setAddPostModal }) {
   const { posts } = useSelector((state) => state.profile);
   return (
     <>
-      <div className={styles.posts_options}>
+      <div className={styles.postsOptions}>
         <span>POSTS</span>
         <span>SAVED</span>
       </div>
       {posts.length > 0 ? (
-        <div className={styles.user_posts}>
+        <div className={styles.userPosts}>
           {posts.map((postObject, idx) => (
             <ProfilePost
               key={idx}
+              id={postObject.post_id}
               url={postObject.images}
               likes={postObject.likes}
               comments={postObject.comments}
@@ -23,14 +24,14 @@ function ProfilePosts({ setAddPostModal }) {
           ))}
         </div>
       ) : (
-        <div className={styles.share_photos_container}>
+        <div className={styles.sharePhotosContainer}>
           <CameraSvg />
-          <p className={styles.share_photos_header}>Share Photos</p>
-          <p className={styles.share_photos_description}>
+          <p className={styles.sharePhotosHeader}>Share Photos</p>
+          <p className={styles.sharePhotosDescription}>
             When you share photos, they will appear on your profile.
           </p>
           <p
-            className={styles.share_photos_link}
+            className={styles.sharePhotosLink}
             onClick={() => setAddPostModal(true)}
           >
             Share your first photo

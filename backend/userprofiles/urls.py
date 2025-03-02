@@ -1,17 +1,25 @@
 from django.urls import path
 
-from .views import UserProfileDetails, CreateUserProfile, UserProfilePicView
+from .views import (
+    UserProfileDetailsView,
+    CreateUserProfileView,
+    UserProfileView,
+    UpdateProfileView,
+)
 
 urlpatterns = [
-    path("<str:username>", UserProfileDetails.as_view(), name="fetch profile details"),
+    path(
+        "<str:username>", UserProfileDetailsView.as_view(), name="fetch profile details"
+    ),
     path(
         "create-profile/<str:id>",
-        CreateUserProfile.as_view(),
+        CreateUserProfileView.as_view(),
         name="create a user profile",
     ),
     path(
-        "profile-pic/<str:id>",
-        UserProfilePicView.as_view(),
-        name="fetch the user profile pic",
+        "profile-details/<str:id>",
+        UserProfileView.as_view(),
+        name="fetch the userprofile details",
     ),
+    path("update-profile/<str:id>", UpdateProfileView.as_view()),
 ]

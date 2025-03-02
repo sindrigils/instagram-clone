@@ -5,6 +5,7 @@ import AppProtectedRoutes from "./utils/protected-routes/AppProtectedRoutes";
 import Login from "./pages/Login/Login";
 import Home from "./pages/HomePage/HomePage";
 import Register from "./pages/Register/Register";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
 
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Profilepage from "./pages/ProfilePage/ProfilePage";
@@ -21,6 +22,7 @@ function App() {
 
         <Route element={<AppProtectedRoutes />}>
           <Route path="/" element={<Home />} exact />
+          <Route path="/accounts" element={<SettingsPage />} />
           <Route path="/:str" element={<Profilepage />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />

@@ -1,5 +1,10 @@
 
-.item_container {
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.itemContainer {
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -11,22 +16,29 @@
     margin-bottom: 0.2rem;
 }
 
-.item_container:hover {
+.itemSelected {
+    background-color: rgb(255, 255, 255, 0.2);
+}
+
+.itemContainer:hover {
     background-color: rgb(255, 255, 255, 0.1);
 }
 
-.item_img svg {
+.itemImg svg {
     width: 24px;
     height: 24px;
 }
 
-.item_img img {
+.itemImg img {
     border-radius: 50px;
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    position: relative;
+    left: -4px;
 }
 
-.item_text {
+
+.itemText {
     margin-left: 0.5rem;
     font-weight: 650;
 }

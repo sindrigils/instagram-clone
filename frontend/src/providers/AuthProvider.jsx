@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
 
 import { LoginUser, LogoutUser } from "../reducers/users/userSlice";
-import useAuth from "../services/authService";
+import useAuth from "../services/useAuth";
 import { axiosInstance } from "../axios";
 
 function AuthProvider({ children }) {
@@ -18,9 +18,12 @@ function AuthProvider({ children }) {
       const isValidToken = await validateToken(accessToken);
       if (isValidToken) {
         const { user_id: userId, username } = jwtDecode(accessToken);
-        const res = await axiosInstance.get(`profile/profile-pic/${userId}`);
+        const res = await axiosInstance.get(
+          `profile/profile-details/${userId}`
+        );
         const profilePic = res.data.profile_pic;
-        dispatch(LoginUser(userId, username, profilePic));
+        const bio = res.data.bio;
+        dispatch(LoginUser(userId, username, profilePic, bio));
       } else {
         localStorage.removeItem("jwtTokens");
         dispatch(LogoutUser());

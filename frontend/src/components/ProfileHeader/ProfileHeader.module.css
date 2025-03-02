@@ -5,7 +5,7 @@
     gap: 5rem;
 }
 
-.profile_pic {
+.profilePic {
     border-radius: 50%;
     height: 9rem;
     width: 9rem;
@@ -25,7 +25,7 @@
     gap: 1.5rem;
 }
 
-.subheader_1__username {
+.subheader_1_Username {
     font-weight: 600;
     font-size: 1.2rem;
 }
@@ -50,7 +50,7 @@
     cursor: pointer;
 }
 
-.profile_btn {
+.profileBtn {
     color: white;
     font-weight: 600;
     border: none;
@@ -61,8 +61,13 @@
     transition: opacity 0.15s ease-in-out;
 }
 
-.profile_btn:hover {
+.profileBtn:hover {
     opacity: 0.8;
+}
+
+.editProfile {
+    text-decoration: none;
+    color: white;
 }
 
 .bio {

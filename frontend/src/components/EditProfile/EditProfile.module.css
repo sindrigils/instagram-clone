@@ -1,0 +1,121 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    color: white;
+    width: 40vw;
+    padding: 3rem 0;
+}
+
+.header {
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.changePhoto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(38, 38, 38);
+    border-radius: 15px;
+    height: 5rem;
+    padding: 1rem;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profilePic {
+    border-radius: 50%;
+    height: 58px;
+    width: 58px;
+}
+
+.bold {
+    font-weight: 700;
+
+}
+.change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 2.2rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 700;
+    background-color: rgb(0, 149, 246);
+}
+
+.fileInput {
+    display: none;
+  }
+
+.bio {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bioTextarea {
+    border: 1px solid gray;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-family: sans-serif;
+    font-weight: 550;
+    font-size: 0.9rem;
+    resize: none;
+}
+
+.bioTextarea::placeholder {
+    font-size: 0.9rem;
+}
+
+.bioTextarea:focus {
+    border: 1px solid white;
+}
+
+.bioTextarea:focus::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.bioTextarea:focus-visible {
+    outline: none;
+}
+
+.charCount {
+    position: absolute;
+    right: 8px;
+    bottom: 7px;
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.submit {
+    background-color: rgb(0, 149, 246);
+    border: none;
+    border-radius: 10px;
+    width: 16rem;
+    height: 3rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+}

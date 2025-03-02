@@ -1,18 +1,17 @@
 import styles from "./Story.module.css";
-import userLogo from "../../assets/images/logo.jpeg";
 
 function formatUsername(username) {
   return username.length > 10 ? username.slice(0, 8) + "..." : username;
 }
-const username = "sindrigils";
+const username = "username";
 
 function Story() {
   return (
-    <div className={styles.story_container}>
-      <div className={styles.story_image}>
-        <img src={userLogo} alt="" />
+    <div className={styles.storyContainer}>
+      <div className={styles.storyImage}>
+        <img src="https://picsum.photos/50" alt="" />
       </div>
-      <p className={styles.story_username}>{formatUsername(username)}</p>
+      <p className={styles.storyUsername}>{formatUsername(username)}</p>
     </div>
   );
 }

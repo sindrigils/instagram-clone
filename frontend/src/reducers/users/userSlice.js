@@ -5,6 +5,7 @@ const initialStateUser = {
   lastName: "",
   email: "",
   profilePic: "",
+  bio: "",
   isLoading: true,
 };
 
@@ -16,24 +17,29 @@ export default function userReducer(state = initialStateUser, action) {
         userId: action.payload.user_id,
         username: action.payload.username,
         profilePic: action.payload.profilePic,
+        bio: action.payload.bio,
         isLoading: false,
       };
 
     case "user/logoutUser":
       return { ...initialStateUser, isLoading: false };
 
-    case "user/updateProfilePic":
-      return { ...state, profilePic: action.payload.profilePic };
+    case "user/setProfile":
+      return {
+        ...state,
+        profilePic: action.payload.profilePic,
+        bio: action.payload.bio,
+      };
 
     default:
       return { ...state };
   }
 }
 
-export function LoginUser(user_id, username, profilePic) {
+export function LoginUser(user_id, username, profilePic, bio) {
   return {
     type: "user/loginUser",
-    payload: { user_id, username, profilePic },
+    payload: { user_id, username, profilePic, bio },
   };
 }
 
@@ -43,6 +49,6 @@ export function LogoutUser() {
   };
 }
 
-export function UpdateProfilePic(profilePic) {
-  return { type: "user/updateProfilePic", payload: { profilePic } };
+export function SetProfile(profilePic, bio) {
+  return { type: "user/setProfile", payload: { profilePic, bio } };
 }
